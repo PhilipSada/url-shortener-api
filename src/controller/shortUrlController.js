@@ -6,6 +6,10 @@ async function createShortUrl(req, res) {
   const { destination, preferredAlias } = req.body;
 
   try {
+
+    if(!destination){
+      res.status(400).json({ message: "All fields are mandatory"});
+    }
     // Check if the preferred alias is already taken
     if (preferredAlias) {
       const existingUrl = await ShortUrlModel.findOne({ preferredAlias });
