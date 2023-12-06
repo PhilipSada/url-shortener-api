@@ -17,3 +17,5 @@ app.listen(port, "0.0.0.0", () => {
     db();
     routes(app);
 });
+
+module.exports = app;
